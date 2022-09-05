@@ -1,8 +1,15 @@
+import { promises as fs, readFileSync } from 'fs'
+import { join } from 'path'
+
 import test from 'ava'
 
-import { plus100 } from '../index'
+import { convert } from '../index'
 
-test('sync function from native code', (t) => {
-  const fixture = 42
-  t.is(plus100(fixture), fixture + 100)
+const EXAMPLE = readFileSync(join(__dirname, 'fixture.svg'))
+
+test('should be able to convert example', async (t) => {
+  await t.notThrowsAsync(async () => {
+    const buffer = convert(EXAMPLE)
+    await fs.writeFile(join(__dirname, 'fixture.pdf'), buffer)
+  })
 })

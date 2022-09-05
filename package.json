@@ -1,9 +1,9 @@
 {
-  "name": "@napi-rs/package-template",
+  "name": "@napi-rs/svg2pdf",
   "version": "1.0.0",
-  "description": "Template project for writing node package with napi-rs",
+  "description": "Convert SVG to PDF",
   "main": "index.js",
-  "repository": "git@github.com:napi-rs/package-template.git",
+  "repository": "https://github.com/Brooooooklyn/svg-to-pdf.git",
   "license": "MIT",
   "keywords": [
     "napi-rs",
@@ -18,7 +18,7 @@
     "index.js"
   ],
   "napi": {
-    "name": "package-template",
+    "name": "svg2pdf",
     "triples": {
       "defaults": true,
       "additional": [
@@ -58,10 +58,10 @@
   "devDependencies": {
     "@napi-rs/cli": "^2.11.4",
     "@swc-node/register": "^1.5.1",
-    "@typescript-eslint/eslint-plugin": "^5.35.1",
-    "@typescript-eslint/parser": "^5.35.1",
+    "@types/node": "^18.7.14",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "ava": "^4.3.3",
-    "benny": "^3.7.1",
     "chalk": "^5.0.1",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
