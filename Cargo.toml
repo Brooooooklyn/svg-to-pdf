@@ -12,8 +12,8 @@ crate-type = ["cdylib"]
 [dependencies]
 napi = "2"
 napi-derive = "2"
-svg2pdf = { version = "0.4", default-features = false, features = [] }
-usvg = "0.22"
+svg2pdf = { git = "https://github.com/typst/svg2pdf", branch = "main"}
+usvg = "=0.32"
 
 [build-dependencies]
 napi-build = "2"
