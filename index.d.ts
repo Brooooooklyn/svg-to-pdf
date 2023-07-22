@@ -13,7 +13,7 @@ export const enum Align {
   XMaxYMid = 6,
   XMinYMax = 7,
   XMidYMax = 8,
-  XMaxYMax = 9
+  XMaxYMax = 9,
 }
 export interface AspectRatio {
   /**

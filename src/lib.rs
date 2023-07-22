@@ -3,6 +3,7 @@
 use napi::bindgen_prelude::*;
 use napi_derive::napi;
 use svg2pdf::convert_tree;
+use usvg::TreeParsing;
 
 #[napi]
 pub enum Align {
@@ -116,9 +117,11 @@ pub struct Options {
 impl From<Options> for svg2pdf::Options {
   fn from(options: Options) -> Self {
     svg2pdf::Options {
-      viewport: options.viewport.map(|vp| (vp.width, vp.height)),
+      viewport: options
+        .viewport
+        .and_then(|vp| usvg::Size::new(vp.width, vp.height)),
       aspect: options.aspect.map(|aspect| aspect.into()),
-      dpi: options.dpi.unwrap_or(72.0),
+      dpi: options.dpi.map(|d| d as f32).unwrap_or(72.0),
       compress: options.compress.unwrap_or(true),
     }
   }
@@ -131,10 +134,11 @@ pub fn convert(
 ) -> Result<Buffer> {
   let options: svg2pdf::Options = options.map(|o| o.into()).unwrap_or_default();
   let mut usvg_opts = usvg::Options::default();
-  if let Some((width, height)) = options.viewport {
-    usvg_opts.default_size = usvg::Size::new(width.max(1.0), height.max(1.0)).unwrap();
+  if let Some(size) = options.viewport {
+    usvg_opts.default_size =
+      usvg::Size::new(size.width().max(1.0), size.height().max(1.0)).unwrap();
   }
-  let tree = usvg::Tree::from_data(input.as_bytes()?, &usvg_opts.to_ref())
+  let tree = usvg::Tree::from_data(input.as_bytes()?, &usvg_opts)
     .map_err(|err| Error::new(Status::InvalidArg, format!("Parse SVG error {err}")))?;
   let output = convert_tree(&tree, options);
   Ok(output.into())
