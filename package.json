@@ -1,6 +1,6 @@
 {
   "name": "@napi-rs/svg2pdf",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Convert SVG to PDF",
   "main": "index.js",
   "repository": {
