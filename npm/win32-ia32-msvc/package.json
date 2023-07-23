@@ -1,6 +1,6 @@
 {
   "name": "@napi-rs/svg2pdf-win32-ia32-msvc",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "os": [
     "win32"
   ],
@@ -28,5 +28,8 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "repository": "https://github.com/Brooooooklyn/svg-to-pdf.git"
+  "repository": {
+    "url": "git@github.com:Brooooooklyn/svg-to-pdf.git",
+    "type": "git"
+  }
 }

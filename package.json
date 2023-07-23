@@ -1,9 +1,12 @@
 {
   "name": "@napi-rs/svg2pdf",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Convert SVG to PDF",
   "main": "index.js",
-  "repository": "https://github.com/Brooooooklyn/svg-to-pdf.git",
+  "repository": {
+    "url": "git@github.com:Brooooooklyn/svg-to-pdf.git",
+    "type": "git"
+  },
   "license": "MIT",
   "keywords": [
     "napi-rs",

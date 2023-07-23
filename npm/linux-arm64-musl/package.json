@@ -1,6 +1,6 @@
 {
   "name": "@napi-rs/svg2pdf-linux-arm64-musl",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "os": [
     "linux"
   ],
@@ -28,7 +28,10 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "repository": "https://github.com/Brooooooklyn/svg-to-pdf.git",
+  "repository": {
+    "url": "git@github.com:Brooooooklyn/svg-to-pdf.git",
+    "type": "git"
+  },
   "libc": [
     "musl"
   ]
